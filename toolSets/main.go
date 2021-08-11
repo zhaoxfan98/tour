@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/spf13/cobra/cobra/cmd"
+	"github.com/zhaoxfan98/Tour/cmd"
 )
 
 func main() {
