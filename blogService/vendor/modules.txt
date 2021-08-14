@@ -19,6 +19,8 @@ github.com/go-playground/locales/currency
 github.com/go-playground/universal-translator
 # github.com/go-playground/validator/v10 v10.4.1
 github.com/go-playground/validator/v10
+# github.com/go-sql-driver/mysql v1.4.1
+github.com/go-sql-driver/mysql
 # github.com/golang/protobuf v1.3.3
 github.com/golang/protobuf/proto
 # github.com/hashicorp/hcl v1.0.0
@@ -32,6 +34,9 @@ github.com/hashicorp/hcl/hcl/token
 github.com/hashicorp/hcl/json/parser
 github.com/hashicorp/hcl/json/scanner
 github.com/hashicorp/hcl/json/token
+# github.com/jinzhu/gorm v1.9.12
+## explicit
+github.com/jinzhu/gorm/dialects/mysql
 # github.com/json-iterator/go v1.1.9
 github.com/json-iterator/go
 # github.com/leodido/go-urn v1.2.0
@@ -80,6 +85,8 @@ golang.org/x/sys/unix
 ## explicit
 golang.org/x/text/transform
 golang.org/x/text/unicode/norm
+# google.golang.org/appengine v1.4.0
+google.golang.org/appengine/cloudsql
 # gopkg.in/yaml.v2 v2.4.0
 ## explicit
 gopkg.in/yaml.v2

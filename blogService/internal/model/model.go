@@ -1,5 +1,11 @@
 package model
 
+import (
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"github.com/zhaoxfan98/blog/pkg/setting"
+)
+
 //创建公共model
 type Model struct {
 	ID         uint32 `gorm:"primary_key" json:"id"`
@@ -9,4 +15,8 @@ type Model struct {
 	ModifiedOn uint32 `json:"modified_on"`
 	DeletedOn  uint32 `json:"deleted_on"`
 	IsDel      uint8  `json:"is_del"`
+}
+
+func NewDBEngine(DatabaseSetting *setting.DatabaseSettingS) (*gorm.DB, error) {
+
 }
