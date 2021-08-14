@@ -1,7 +1,7 @@
 package routers
 
 import (
-	v1 "github.com/zhaoxfan98/blog/routers/api/v1"
+	v1 "github.com/zhaoxfan98/blog/internal/routers/api/v1"
 
 	"github.com/gin-gonic/gin"
 )

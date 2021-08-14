@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/zhaoxfan98/blog/routers"
+	"github.com/zhaoxfan98/blog/internal/routers"
 )
 
 func main() {
