@@ -1,5 +1,7 @@
 package global
 
+import "github.com/zhaoxfan98/blog/pkg/setting"
+
 //读取了文件的配置信息后，还需要将配置信息和应用程序关联起来
 var (
 	ServerSetting   *setting.ServerSettingS
