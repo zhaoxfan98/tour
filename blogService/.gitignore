@@ -1,0 +1,6 @@
+.vendor/*
+.third_party/*
+.storage/*
+
+go.mod
+go.sum
