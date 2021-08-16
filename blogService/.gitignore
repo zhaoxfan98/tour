@@ -1,6 +1,5 @@
-.vendor/
-.third_party/*
-.storage/*
-
-go.mod
-go.sum
+blogService/third_party/*
+blogService/scripts/*
+blogService/vendor/*
+blogService/go.mod
+blogService/go.sum
