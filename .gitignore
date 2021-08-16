@@ -1,2 +1,5 @@
 blogService/third_party/*
 blogService/scripts/*
+blogService/vendor/*
+blogService/go.mod
+blogService/go.sum
