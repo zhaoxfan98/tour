@@ -1,15 +1,20 @@
 package routers
 
 import (
-	v1 "github.com/zhaoxfan98/blog/internal/routers/api/v1"
-
 	"github.com/gin-gonic/gin"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
+	_ "github.com/zhaoxfan98/blog/docs"
+	v1 "github.com/zhaoxfan98/blog/internal/routers/api/v1"
 )
 
 func NewRouter() *gin.Engine {
 	r := gin.New()
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
+
+	//访问接口文档 初始化和注册对应的路由
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	article := v1.NewArticle()
 	tag := v1.NewTag()

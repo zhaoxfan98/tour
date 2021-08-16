@@ -1,4 +1,4 @@
-.vendor/*
+.vendor/
 .third_party/*
 .storage/*
 
