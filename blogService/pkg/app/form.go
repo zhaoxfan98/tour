@@ -8,6 +8,8 @@ import (
 	val "github.com/go-playground/validator/v10"
 )
 
+//对入参校验方法进行二次封装
+
 type ValidError struct {
 	Key     string
 	Message string
@@ -34,7 +36,9 @@ func (v ValidErrors) Errors() []string {
 
 func BindAndValid(c *gin.Context, v interface{}) (bool, ValidErrors) {
 	var errs ValidErrors
+	//通过ShouldBind进行参数绑定和入参校验、
 	err := c.ShouldBind(v)
+	//发生错误后，通过在中间件Translations中设置的Translator对错误消息体进行具体的翻译
 	if err != nil {
 		v := c.Value("trans")
 		trans, _ := v.(ut.Translator)

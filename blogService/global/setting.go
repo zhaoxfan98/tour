@@ -12,5 +12,5 @@ var (
 	AppSetting      *setting.AppSettingS
 	DatabaseSetting *setting.DatabaseSettingS
 	//完成日志库的编写后，我们需要定义一个 Logger 对象便于我们的应用程序使用
-	Logger *logger.Logger
+	Logger *logger.Logger //用于日志文件的初始化
 )

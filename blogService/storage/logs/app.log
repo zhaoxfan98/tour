@@ -1,0 +1,2 @@
+2021/08/23 22:42:23 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [State必须是[0 1]中的一个]","time":1629729743212997300}
+2021/08/23 22:42:23 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [State必须是[0 1]中的一个]","time":1629729743213996000}
