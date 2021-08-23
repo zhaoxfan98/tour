@@ -6,6 +6,7 @@ import (
 )
 
 //读取了文件的配置信息后，还需要将配置信息和应用程序关联起来
+//对最初预估的三个区段进行了配置并声明了全局变量，以便接下来关联起来，提供给应用程序内部调用
 var (
 	ServerSetting   *setting.ServerSettingS
 	AppSetting      *setting.AppSettingS

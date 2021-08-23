@@ -7,6 +7,7 @@ type Setting struct {
 	vp *viper.Viper
 }
 
+//初始化本项目配置的基础属性
 func NewSetting() (*Setting, error) {
 	vp := viper.New()
 	vp.SetConfigName("config")

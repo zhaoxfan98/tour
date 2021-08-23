@@ -16,6 +16,7 @@ import (
 
 //进行应用程序的初始化流程控制
 func init() {
+	//把配置文件内容映射到应用配置结构体中的作用
 	err := setupSetting()
 	if err != nil {
 		log.Fatalf("init.setupSetting err: %v", err)
