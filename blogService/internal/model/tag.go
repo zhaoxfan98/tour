@@ -21,6 +21,11 @@ func (t Tag) TableName() string {
 	return "blog_tag"
 }
 
+//对标签模块的模型操作进行封装，并且只与实体产生关系
+/*
+
+ */
+
 func (t Tag) Count(db *gorm.DB) (int, error) {
 	var count int
 	if t.Name != "" {
