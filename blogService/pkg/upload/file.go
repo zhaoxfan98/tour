@@ -63,10 +63,10 @@ func CheckMaxSize(t FileType, f multipart.File) bool {
 	switch t {
 	case TypeImage:
 		if size >= global.AppSetting.UploadImageMaxSize*1024*1024 {
-			return false
+			return true
 		}
 	}
-	return true
+	return false
 }
 
 func CheckPermission(dst string) bool {

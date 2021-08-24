@@ -43,3 +43,4 @@
 2021/08/24 15:44:03 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [State为必填字段]","time":1629791043036182500}
 2021/08/24 15:44:09 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"svc.UpdateTag err: sql: expected 7 arguments, got 6","time":1629791049154157600}
 2021/08/24 15:45:36 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [State为必填字段]","time":1629791136856455200}
+2021/08/24 16:37:58 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"svc.UploadFile err: exceeded maximum file limit.","time":1629794278630173700}
