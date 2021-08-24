@@ -1,2 +1,11 @@
 2021/08/23 22:42:23 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [State必须是[0 1]中的一个]","time":1629729743212997300}
 2021/08/23 22:42:23 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [State必须是[0 1]中的一个]","time":1629729743213996000}
+2021/08/24 11:31:26 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [Name为必填字段]","time":1629775886975024600}
+2021/08/24 11:33:49 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [Name长度必须至少为3个字符]","time":1629776029732885000}
+2021/08/24 11:38:34 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [ID为必填字段]","time":1629776314829755900}
+2021/08/24 11:47:16 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [State为必填字段 ID为必填字段 Name长度必须至少为3个字符]","time":1629776836124125100}
+2021/08/24 11:55:00 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [Name为必填字段]","time":1629777300699438800}
+2021/08/24 11:55:11 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [ID为必填字段]","time":1629777311051135400}
+2021/08/24 11:56:38 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [ID为必填字段]","time":1629777398129569400}
+2021/08/24 11:56:48 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [ID为必填字段]","time":1629777408737621600}
+2021/08/24 11:57:22 {"callers":["C:/Users/zhao/OneDrive/Code/src/tour/blogService/main.go: 30 main.init.0"],"level":"error","message":"app.BindAndValid errs: [ID为必填字段]","time":1629777442948026200}
