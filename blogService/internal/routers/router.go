@@ -9,6 +9,7 @@ import (
 	_ "github.com/zhaoxfan98/blog/docs"
 	"github.com/zhaoxfan98/blog/global"
 	"github.com/zhaoxfan98/blog/internal/middleware"
+	"github.com/zhaoxfan98/blog/internal/routers/api"
 	v1 "github.com/zhaoxfan98/blog/internal/routers/api/v1"
 )
 
@@ -26,7 +27,7 @@ func NewRouter() *gin.Engine {
 	tag := v1.NewTag()
 
 	//上传文件的对应路由
-	upload := v1.NewUpload()
+	upload := api.NewUpload()
 	r.POST("/upload/file", upload.UploadFile)
 	r.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))
 
