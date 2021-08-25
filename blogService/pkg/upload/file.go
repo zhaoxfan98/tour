@@ -25,7 +25,7 @@ func GetFileName(name string) string {
 	return fileName + ext
 }
 
-//获取文件后缀
+//获取文件后缀 path.Ext方法循环查找"."符号，最后通过切片索引返回对应文件后缀
 func GetFileExt(name string) string {
 	return path.Ext(name)
 }

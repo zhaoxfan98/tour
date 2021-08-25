@@ -9,6 +9,7 @@ import (
 	"github.com/zhaoxfan98/blog/pkg/upload"
 )
 
+//上传文件工具库与具体的业务接口结合起来
 type FileInfo struct {
 	Name      string
 	AccessUrl string

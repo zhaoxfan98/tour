@@ -7,7 +7,7 @@ import (
 	"github.com/zhaoxfan98/blog/pkg/errcode"
 )
 
-//响应处理
+// **响应处理**
 
 type Response struct {
 	Ctx *gin.Context

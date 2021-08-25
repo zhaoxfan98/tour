@@ -10,6 +10,7 @@ import (
 	"github.com/zhaoxfan98/blog/pkg/upload"
 )
 
+//增加路由方法 将整套上传逻辑串联起来
 type Upload struct{}
 
 func NewUpload() Upload {
