@@ -9,7 +9,7 @@ import (
 	_ "github.com/zhaoxfan98/blog/docs"
 	"github.com/zhaoxfan98/blog/global"
 	"github.com/zhaoxfan98/blog/internal/middleware"
-	"github.com/zhaoxfan98/blog/internal/routers/api"
+	api "github.com/zhaoxfan98/blog/internal/routers/api"
 	v1 "github.com/zhaoxfan98/blog/internal/routers/api/v1"
 )
 
