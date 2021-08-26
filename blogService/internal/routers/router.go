@@ -2,6 +2,7 @@ package routers
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -11,12 +12,29 @@ import (
 	"github.com/zhaoxfan98/blog/internal/middleware"
 	api "github.com/zhaoxfan98/blog/internal/routers/api"
 	v1 "github.com/zhaoxfan98/blog/internal/routers/api/v1"
+	"github.com/zhaoxfan98/blog/pkg/limiter"
 )
+
+var methodLimiters = limiter.NewMethodLimiter().AddBuckets(limiter.LimiterBucketRule{
+	Key:          "/auth",
+	FillInterval: time.Second,
+	Capacity:     10,
+	Quantum:      10,
+})
 
 func NewRouter() *gin.Engine {
 	r := gin.New()
-	r.Use(gin.Logger())
-	r.Use(gin.Recovery())
+	if global.ServerSetting.RunMode == "debug" {
+		r.Use(gin.Logger())
+		r.Use(gin.Recovery())
+	} else {
+		r.Use(middleware.AccessLog())
+		r.Use(middleware.Recovery())
+	}
+	//限流控制
+	r.Use(middleware.RateLimiter(methodLimiters))
+	//超时控制
+	r.Use(middleware.ContextTimeout(time.Duration(global.AppSetting.DefaultContextTimeout) * time.Second))
 	//中间件Translations的注册
 	r.Use(middleware.Translations())
 
