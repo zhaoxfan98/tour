@@ -11,6 +11,7 @@ import (
 	"github.com/zhaoxfan98/blog/internal/routers"
 	"github.com/zhaoxfan98/blog/pkg/logger"
 	"github.com/zhaoxfan98/blog/pkg/setting"
+	"github.com/zhaoxfan98/blog/pkg/tracer"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
@@ -32,6 +33,10 @@ func init() {
 		log.Fatalf("init.setupLogger err: %v", err)
 	}
 
+	err = setupTracer()
+	if err != nil {
+		log.Fatalf("init.setupTracer err: %v", err)
+	}
 }
 
 // @title 博客系统
@@ -106,5 +111,17 @@ func setupLogger() error {
 		LocalTime: true,
 	}, "", log.LstdFlags).WithCaller(2)
 
+	return nil
+}
+
+func setupTracer() error {
+	jaegerTracer, _, err := tracer.NewJaegerTracer(
+		"blog-service",
+		"127.0.0.1:6831",
+	)
+	if err != nil {
+		return err
+	}
+	global.Tracer = jaegerTracer
 	return nil
 }

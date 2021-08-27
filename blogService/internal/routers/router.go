@@ -37,6 +37,8 @@ func NewRouter() *gin.Engine {
 	r.Use(middleware.ContextTimeout(time.Duration(global.AppSetting.DefaultContextTimeout) * time.Second))
 	//中间件Translations的注册
 	r.Use(middleware.Translations())
+	//链路追踪
+	r.Use(middleware.Tracing())
 
 	//访问接口文档 初始化和注册对应的路由
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
