@@ -31,6 +31,20 @@ func Tracing() func(c *gin.Context) {
 			)
 		}
 		defer span.Finish()
+		//实现日志追踪
+		var traceID string
+		var spanID string
+		var spanContext = span.Context()
+		//断言 获取SpanID和traceID 将其注册到上下文的元数据中
+		switch spanContext.(type) {
+		case jaeger.SpanContext:
+			jaegerContext := spanContext.(jaeger.SpanContext)
+			traceID = jaegerContext.TraceID().String()
+			spanID = jaegerContext.SpanID().String()
+		}
+		c.Set("X-Trace-ID", traceID)
+		c.Set("X-Span-ID", spanID)
+
 		c.Request = c.Request.WithContext(newCtx)
 		c.Next()
 	}
