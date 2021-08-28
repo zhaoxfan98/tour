@@ -16,5 +16,5 @@ func (svc *Service) CheckAuth(param *AuthRequest) error {
 	if auth.ID > 0 {
 		return nil
 	}
-	return errors.New("auth info does not exist.")
+	return errors.New("auth info does not exist")
 }

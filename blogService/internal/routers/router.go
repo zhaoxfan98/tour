@@ -31,31 +31,30 @@ func NewRouter() *gin.Engine {
 		r.Use(middleware.AccessLog())
 		r.Use(middleware.Recovery())
 	}
+	//链路追踪
+	r.Use(middleware.Tracing())
 	//限流控制
 	r.Use(middleware.RateLimiter(methodLimiters))
 	//超时控制
-	r.Use(middleware.ContextTimeout(time.Duration(global.AppSetting.DefaultContextTimeout) * time.Second))
+	r.Use(middleware.ContextTimeout(global.AppSetting.DefaultContextTimeout))
 	//中间件Translations的注册
 	r.Use(middleware.Translations())
-	//链路追踪
-	r.Use(middleware.Tracing())
 
 	//访问接口文档 初始化和注册对应的路由
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	article := v1.NewArticle()
 	tag := v1.NewTag()
-
 	//上传文件的对应路由
 	upload := api.NewUpload()
 	r.POST("/upload/file", upload.UploadFile)
 	r.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))
-
 	//auth相关路由
 	r.POST("/auth", api.GetAuth)
 
 	apiv1 := r.Group("/api/v1")
-	apiv1.Use(middleware.JWT())
+	//使用JWT认证会导致访问api接口时参数错误
+	apiv1.Use() //middleware.JWT()
 	{
 		apiv1.POST("/tags", tag.Create)
 		apiv1.DELETE("/tags/:id", tag.Delete)

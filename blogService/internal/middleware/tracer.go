@@ -4,6 +4,9 @@ import (
 	"context"
 
 	"github.com/gin-gonic/gin"
+	opentracing "github.com/opentracing/opentracing-go"
+	"github.com/opentracing/opentracing-go/ext"
+	"github.com/uber/jaeger-client-go"
 	"github.com/zhaoxfan98/blog/global"
 )
 
@@ -27,7 +30,7 @@ func Tracing() func(c *gin.Context) {
 				global.Tracer,
 				c.Request.URL.Path,
 				opentracing.ChildOf(spanCtx),
-				opentracing.Tag{Key: string(ext.Component), value: "HTTP"},
+				opentracing.Tag{Key: string(ext.Component), Value: "HTTP"},
 			)
 		}
 		defer span.Finish()

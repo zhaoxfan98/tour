@@ -11,9 +11,9 @@ type ServerSettingS struct {
 }
 
 type AppSettingS struct {
-	DefaultContextTimeout int
 	DefaultPageSize       int
 	MaxPageSize           int
+	DefaultContextTimeout time.Duration
 	LogSavePath           string
 	LogFileName           string
 	LogFileExt            string
