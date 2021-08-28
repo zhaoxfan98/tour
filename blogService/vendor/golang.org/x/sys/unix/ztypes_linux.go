@@ -452,11 +452,6 @@ type CanFilter struct {
 	Mask uint32
 }
 
-type TCPRepairOpt struct {
-	Code uint32
-	Val  uint32
-}
-
 const (
 	SizeofSockaddrInet4     = 0x10
 	SizeofSockaddrInet6     = 0x1c
@@ -489,7 +484,6 @@ const (
 	SizeofUcred             = 0xc
 	SizeofTCPInfo           = 0x68
 	SizeofCanFilter         = 0x8
-	SizeofTCPRepairOpt      = 0x8
 )
 
 const (

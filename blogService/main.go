@@ -1,10 +1,8 @@
 package main
 
 import (
-	"flag"
 	"log"
 	"net/http"
-	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -15,12 +13,6 @@ import (
 	"github.com/zhaoxfan98/blog/pkg/setting"
 	"github.com/zhaoxfan98/blog/pkg/tracer"
 	"gopkg.in/natefinch/lumberjack.v2"
-)
-
-var (
-	port    string
-	runMode string
-	config  string
 )
 
 //进行应用程序的初始化流程控制
@@ -45,8 +37,6 @@ func init() {
 	if err != nil {
 		log.Fatalf("init.setupTracer err: %v", err)
 	}
-
-	setupFlag()
 }
 
 // @title 博客系统
@@ -66,18 +56,8 @@ func main() {
 	s.ListenAndServe()
 }
 
-func setupFlag() error {
-	flag.StringVar(&port, "port", "", "启动端口")
-	flag.StringVar(&runMode, "mode", "", "启动模式")
-	flag.StringVar(&config, "config", "configs/", "指定要使用的配置文件路径")
-	flag.Parse()
-
-	return nil
-}
-
 func setupSetting() error {
-	//ServerSetting配置项进行覆写。如果存在，则覆盖原有的文件配置，使其优先级更高
-	setting, err := setting.NewSetting(strings.Split(config, ",")...)
+	setting, err := setting.NewSetting()
 	if err != nil {
 		return err
 	}
@@ -105,14 +85,6 @@ func setupSetting() error {
 	global.JWTSetting.Expire *= time.Second
 	global.ServerSetting.ReadTimeout *= time.Second
 	global.ServerSetting.WriteTimeout *= time.Second
-
-	if port != "" {
-		global.ServerSetting.HttpPort = port
-	}
-	if runMode != "" {
-		global.ServerSetting.RunMode = runMode
-	}
-
 	return nil
 }
 
