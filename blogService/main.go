@@ -54,8 +54,6 @@ func main() {
 		MaxHeaderBytes: 1 << 20,
 	}
 	s.ListenAndServe()
-
-	global.Logger.Infof("%s: go-programming-tour-book/%s", "eddycjy", "blog-service")
 }
 
 func setupSetting() error {
