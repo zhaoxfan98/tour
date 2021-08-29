@@ -25,7 +25,7 @@ func NewSetting(configs ...string) (*Setting, error) {
 	if err != nil {
 		return nil, err
 	}
-
+	//新增文件热更新的监听和变更处理
 	s := &Setting{vp}
 	s.WatchSettingChange()
 	return s, nil
@@ -35,6 +35,7 @@ func (s *Setting) WatchSettingChange() {
 	go func() {
 		s.vp.WatchConfig()
 		s.vp.OnConfigChange(func(in fsnotify.Event) {
+			//处理热更新的文件监听事件回调
 			_ = s.ReloadAllSection()
 		})
 	}()

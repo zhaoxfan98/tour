@@ -60,6 +60,10 @@ func (s *Setting) ReadSection(k string, v interface{}) error {
 		return err
 	}
 
+	//增加读取section的存储记录，以便在重新加载配置的方法中进行二次处理
+	if _, ok := sections[k]; !ok {
+		sections[k] = v
+	}
 	return nil
 }
 
