@@ -1,11 +1,15 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"log"
 	"net/http"
+	"os"
+	"os/signal"
 	"strings"
+	"syscall"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -74,7 +78,28 @@ func main() {
 		WriteTimeout:   global.ServerSetting.WriteTimeout,
 		MaxHeaderBytes: 1 << 20,
 	}
-	s.ListenAndServe()
+	//实现优雅重启和停止
+	go func() {
+		err := s.ListenAndServe()
+		if err != nil && err != http.ErrServerClosed {
+			log.Fatalf("s.ListenAndServe err: %v", err)
+		}
+	}()
+
+	//等待中断信号
+	quit := make(chan os.Signal)
+	//接受syscall.SIGINT 和 syscall.SIGTERM 信号
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+	log.Println("Shuting down server...")
+
+	//最大时间控制，用于通知该服务端它有5s时间来处理原有的请求
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	if err := s.Shutdown(ctx); err != nil {
+		log.Fatal("Server forced to shutdown:", err)
+	}
+	log.Println("Server exiting!")
 }
 
 func setupFlag() error {
