@@ -84,4 +84,13 @@ gRPC 是基于 HTTP/2 设计的，HTTP/2 标准在 2015 年 5 月以 RFC 7540 �
 
 ---
 
-# Protobuf 的使用和了解
+## gRPC 的四种调用方式
+
+在 gRPC 中，一共包含四种调用方式，分别是：
+
+- Unary RPC：一元RPC
+- Server-side streaming RPC:服务端流式RPC
+- Client-side streaming RPC：客户端流式RPC
+- Bidirectional streaming RPC:双向流式ROC
+
+不同调用方式往往代表着不同的应用场景，
