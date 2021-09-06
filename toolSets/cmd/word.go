@@ -1,5 +1,6 @@
 package cmd
 
+// 用于单词格式转换的子命令word的设置
 import (
 	"log"
 	"strings"
@@ -29,6 +30,7 @@ var desc = strings.Join([]string{
 	"5：驼峰转下划线",
 }, "\n")
 
+//根据单词转换所需的参数，分别是单词内容和转换的模式进行命令行参数的设置和初始化
 func init() {
 	wordCmd.Flags().StringVarP(&str, "str", "s", "", "请输入单词内容")
 	wordCmd.Flags().Int8VarP(&mode, "mode", "m", 0, "请输入单词转换的模式")
